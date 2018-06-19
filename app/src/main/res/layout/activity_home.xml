@@ -73,11 +73,32 @@
         />
 
     <ImageView
+        android:id="@+id/bgVistoPor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/bgBus"
-        android:layout_marginLeft="95dp"
+        android:layout_marginLeft="93dp"
         app:srcCompat="@drawable/bg_visto_por"
+        />
+
+    <ImageView
+        android:id="@+id/bgLugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bgVistoPor"
+        android:layout_alignLeft="@id/bgVistoPor"
+        android:layout_marginLeft="129dp"
+        app:srcCompat="@drawable/bg_lugar"
+        />
+
+    <ImageView
+        android:id="@+id/bgVistoHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bgLugar"
+        android:layout_alignLeft="@id/bgLugar"
+        android:layout_marginLeft="61dp"
+        app:srcCompat="@drawable/bg_visto_hora"
         />
 
 </RelativeLayout>
