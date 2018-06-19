@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home"
+    android:background="@color/bg"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        android:text=""/>
+
+    <ImageView
+        android:id="@+id/bgCabecalho"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_rectangle_18" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="Circular UFRPE"
+        android:layout_alignBottom="@+id/bgCabecalho"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="3dp"
+        android:textSize="19dp"
+        android:textColor="#FCFCFC"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/btnMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/ic_sand" />
+
+    <ImageView
+        android:id="@+id/btnRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        app:srcCompat="@drawable/ic_refresh"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/bgCabecalho"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/bg_bus"
+        />
+
+</RelativeLayout>
