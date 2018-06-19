@@ -120,4 +120,23 @@
         app:srcCompat="@drawable/bg_prev_lugar"
         />
 
+    <ImageView
+        android:id="@+id/bgPrevTempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bgPrevLugar"
+        android:layout_alignLeft="@id/bgPrevLugar"
+        android:layout_marginLeft="95dp"
+        app:srcCompat="@drawable/bg_prev_tempo"
+        />
+
+    <ImageView
+        android:id="@+id/bgOndeEsta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/bgBus"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/bg_onde_esta" />
+
 </RelativeLayout>
