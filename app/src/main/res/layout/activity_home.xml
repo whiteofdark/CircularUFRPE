@@ -101,4 +101,13 @@
         app:srcCompat="@drawable/bg_visto_hora"
         />
 
+    <ImageView
+        android:id="@+id/bgPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bgBus"
+        android:layout_marginLeft="93dp"
+        app:srcCompat="@drawable/bg_prev"
+        />
+
 </RelativeLayout>
