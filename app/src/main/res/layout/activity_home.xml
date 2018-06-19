@@ -54,12 +54,30 @@
         />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/bgBus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bgCabecalho"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         app:srcCompat="@drawable/bg_bus"
+        />
+    <ImageView
+        android:layout_width="42dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/bgBus"
+        android:layout_alignLeft="@+id/bgBus"
+        android:layout_marginLeft="9dp"
+        android:layout_marginBottom="4dp"
+        app:srcCompat="@drawable/ic_bus"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bgBus"
+        android:layout_marginLeft="95dp"
+        app:srcCompat="@drawable/bg_visto_por"
         />
 
 </RelativeLayout>
