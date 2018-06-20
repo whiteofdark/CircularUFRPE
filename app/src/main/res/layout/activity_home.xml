@@ -634,7 +634,7 @@
         android:layout_centerInParent="true"
         android:textSize="9dp"
         android:textColor="@color/cinza"
-        android:text="Versão: (Beta) 1.1.0"
+        android:text="Versão: (Beta) 1.1.1"
         />
 
 </RelativeLayout>

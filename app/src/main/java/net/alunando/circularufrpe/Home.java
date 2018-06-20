@@ -406,7 +406,7 @@ public class Home extends AppCompatActivity {
                                 Toast.makeText(Home.this, "Erro: 1313", Toast.LENGTH_LONG).show();
                             }
                         } catch (Exception erro){
-                            Toast.makeText(Home.this, "Ops! Ocorreu um erro" + erro, Toast.LENGTH_LONG).show();
+                            Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 21 - " + erro, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -480,7 +480,7 @@ public class Home extends AppCompatActivity {
                                 Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
                             }
                         } catch (Exception erro){
-                            Toast.makeText(Home.this, "Ops! Ocorreu um erro" + erro, Toast.LENGTH_LONG).show();
+                            Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 22 - " + erro, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
