@@ -59,8 +59,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_below="@+id/bgCabecalho"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
         app:srcCompat="@drawable/bg_bus"
         />
     <ImageView
@@ -78,7 +78,7 @@
         android:layout_width="125dp"
         android:layout_height="25dp"
         android:layout_alignTop="@id/bgBus"
-        android:layout_marginLeft="93dp"
+        android:layout_marginLeft="70dp"
         app:srcCompat="@drawable/bg_visto_por"
         />
 
@@ -148,7 +148,7 @@
         android:layout_width="68dp"
         android:layout_height="25dp"
         android:layout_alignBottom="@id/bgBus"
-        android:layout_marginLeft="93dp"
+        android:layout_marginLeft="70dp"
         app:srcCompat="@drawable/bg_prev"
         />
 
@@ -219,14 +219,14 @@
         android:layout_height="147dp"
         android:layout_below="@+id/star"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-100dp"
+        android:layout_marginTop="-102dp"
         app:srcCompat="@drawable/spotted"
         />
 
     <ImageView
         android:id="@+id/soon"
-        android:layout_width="318dp"
-        android:layout_height="145dp"
+        android:layout_width="300dp"
+        android:layout_height="130dp"
         android:layout_alignBottom="@+id/spotted"
         android:layout_alignLeft="@+id/spotted"
         android:layout_marginLeft="5dp"
@@ -235,11 +235,10 @@
 
     <ImageView
         android:id="@+id/bgRu"
-        android:layout_width="351dp"
-        android:layout_height="247dp"
+        android:layout_width="309dp"
+        android:layout_height="233dp"
         android:layout_below="@id/bgBus"
         android:layout_centerInParent="true"
-        android:layout_marginTop="12dp"
         android:src="@drawable/bg_ru"
         />
 
@@ -249,7 +248,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         android:layout_marginLeft="20dp"
         android:textSize="10dp"
         android:textColor="@color/cinza"
@@ -262,7 +261,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="22dp"
         android:textSize="12dp"
         android:textColor="@color/cinza"
@@ -275,14 +274,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="29dp"
-        android:layout_marginLeft="26dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="15dp"
         android:src="@drawable/salada"
         />
 
     <ImageView
         android:id="@+id/bgSalada"
-        android:layout_width="223dp"
+        android:layout_width="203dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/salada"
         android:layout_alignLeft="@id/salada"
@@ -309,14 +308,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="53dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginLeft="15dp"
         android:src="@drawable/guarnicao"
         />
 
     <ImageView
         android:id="@+id/bgGuarnicao"
-        android:layout_width="202dp"
+        android:layout_width="183dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/guarnicao"
         android:layout_alignLeft="@id/guarnicao"
@@ -344,13 +343,13 @@
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
         android:layout_marginTop="76dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/principal"
         />
 
     <ImageView
         android:id="@+id/bgPrincipal"
-        android:layout_width="212dp"
+        android:layout_width="192dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/principal"
         android:layout_alignLeft="@id/principal"
@@ -377,14 +376,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="99dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/sobremesa"
         />
 
     <ImageView
         android:id="@+id/bgSobremesa"
-        android:layout_width="203dp"
+        android:layout_width="183dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/sobremesa"
         android:layout_alignLeft="@id/sobremesa"
@@ -411,14 +410,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="122dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/suco"
         />
 
     <ImageView
         android:id="@+id/bgSuco"
-        android:layout_width="236dp"
+        android:layout_width="217dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/suco"
         android:layout_alignLeft="@id/suco"
@@ -445,14 +444,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="144dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/fast"
         />
 
     <ImageView
         android:id="@+id/bgFast"
-        android:layout_width="210dp"
+        android:layout_width="191dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/fast"
         android:layout_alignLeft="@id/fast"
@@ -479,14 +478,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="167dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/vegetariano"
         />
 
     <ImageView
         android:id="@+id/bgVegetariano"
-        android:layout_width="194dp"
+        android:layout_width="176dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/vegetariano"
         android:layout_alignLeft="@id/vegetariano"
@@ -513,14 +512,14 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginLeft="16dp"
         android:src="@drawable/grelha"
         />
 
     <ImageView
         android:id="@+id/bgGrelha"
-        android:layout_width="219dp"
+        android:layout_width="201dp"
         android:layout_height="20dp"
         android:layout_alignTop="@id/grelha"
         android:layout_alignLeft="@id/grelha"
@@ -545,7 +544,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bgRu"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="-5dp"
         android:textStyle="bold"
         android:textColor="@color/cinza"
         android:layout_centerHorizontal="true"
@@ -558,7 +557,7 @@
         android:layout_height="231dp"
         android:layout_below="@+id/bgRu"
         android:layout_centerInParent="true"
-        android:layout_marginTop="-80dp"
+        android:layout_marginTop="-90dp"
         android:src="@drawable/star"
         />
 
@@ -634,7 +633,7 @@
         android:layout_centerInParent="true"
         android:textSize="9dp"
         android:textColor="@color/cinza"
-        android:text="Versão: (Beta) 1.1.0"
+        android:text="Versão: (Beta) 1.0"
         />
 
 </RelativeLayout>

@@ -209,6 +209,8 @@ public class Home extends AppCompatActivity {
                 minuto = Integer.valueOf(horaFormatada.format(horaAtual));
                 hora = Integer.valueOf(horaFormatada2.format(horaAtual));
 
+                System.out.println("num: " + num);
+
                 int tempo=0;
 
                 final String local = txtVistoNo.getText().toString();
@@ -261,12 +263,12 @@ public class Home extends AppCompatActivity {
                     }
                 }
 
-                // SE O TEMPO FOR MAIOR QUE 20MIN IRÁ ZERAR
-                if (tempo > 610000){
-                    tempo = 1000;
+
+                // SE O TEMPO FOR MAIOR QUE 20MIN IRÁ ZERAR / GAMBIARRA = Programar forma melhor de corrigir isso
+                if (tempo > 1300000){
+                    tempo = 2000;
                 }
 
-                System.out.println("Tempo: " + tempo + " local: " + localTemp);
 
                 if (myCountDownTimer != null) {
                     myCountDownTimer.cancel();
@@ -280,8 +282,8 @@ public class Home extends AppCompatActivity {
                         long min = (millisUntilFinished / 60000) % 60;
                         long sec = (millisUntilFinished / 1000) % 60;
 
-                        txtPrevLocal.setText(localTemp);
-                        txtPrevTempo.setText(f.format(min) +':'+ f.format(sec));
+                        txtPrevLocal.setText("No "+ localTemp + " em");
+                        txtPrevTempo.setText(f.format(min) +':'+ f.format(sec) + " min");
                     }
 
                     public void onFinish() {
