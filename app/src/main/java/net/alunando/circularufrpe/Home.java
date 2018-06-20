@@ -39,7 +39,7 @@ public class Home extends AppCompatActivity {
 
     TextView txtVistoNo, txtVistoHora, txtPrevLocal, txtPrevTempo;
 
-    TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo;
+    TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo, txtGuarnicao, txtPrincipal, txtSobremesa, txtSuco, txtFast, txtVegetariano, txtGrelha;
 
     int controlMenu=0, controlSpotted=0;
 
@@ -415,15 +415,13 @@ public class Home extends AppCompatActivity {
         String url = HOST + "/ru_recebe.php";
 
         txtSalada = (TextView) findViewById(R.id.txtSalada);
-        /*
         txtGuarnicao = (TextView) findViewById(R.id.txtGuarnicao);
-        txtPrincial = (TextView) findViewById(R.id.txtPrincial);
+        txtPrincipal = (TextView) findViewById(R.id.txtPrincipal);
         txtSobremesa = (TextView) findViewById(R.id.txtSobremesa);
         txtSuco = (TextView) findViewById(R.id.txtSuco);
         txtFast = (TextView) findViewById(R.id.txtFast);
         txtVegetariano = (TextView) findViewById(R.id.txtVegetariano);
         txtGrelha = (TextView) findViewById(R.id.txtGrelha);
-        */
         txtRefeicaoData = (TextView) findViewById(R.id.txtRefeicaoData);
         txtRefeicaoTipo = (TextView) findViewById(R.id.txtRefeicaoTipo);
 
@@ -465,15 +463,13 @@ public class Home extends AppCompatActivity {
                             } else if (RETORNO.equals("SUCESSO")){
 
                                 txtSalada.setText(result.get("SALADA").getAsString());
-                                /*
                                 txtGuarnicao.setText(result.get("GUARNICAO").getAsString());
-                                txtPrincial.setText(result.get("PRINCIPAL").getAsString());
+                                txtPrincipal.setText(result.get("PRINCIPAL").getAsString());
                                 txtSobremesa.setText(result.get("SOBREMESA").getAsString());
                                 txtSuco.setText(result.get("SUCO").getAsString());
                                 txtFast.setText(result.get("FASTGRILL").getAsString());
                                 txtVegetariano.setText(result.get("VEGETARIANO").getAsString());
                                 txtGrelha.setText(result.get("GRELHA").getAsString());
-                                */
                                 txtRefeicaoData.setText(result.get("DATA").getAsString());
                                 txtRefeicaoTipo.setText(result.get("TIPO").getAsString());
 
