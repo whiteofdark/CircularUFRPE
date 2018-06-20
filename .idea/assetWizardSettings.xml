@@ -117,11 +117,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="42" />
-                            <entry key="outputName" value="bg_visto_por" />
+                            <entry key="height" value="19" />
+                            <entry key="outputName" value="ic_star" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="E:\Android\CircularUFRPE\Design\bg_visto_por.psd" />
-                            <entry key="width" value="204" />
+                            <entry key="sourceFile" value="E:\Android\CircularUFRPE\Design\star.svg" />
+                            <entry key="width" value="319" />
                           </map>
                         </option>
                       </PersistentState>
