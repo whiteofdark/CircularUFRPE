@@ -81,6 +81,19 @@
         app:srcCompat="@drawable/bg_visto_por"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgVistoPor"
+        android:layout_alignLeft="@id/bgVistoPor"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="6dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@color/cinza"
+        android:text="VISTO POR ÚLTIMO"
+        />
+
     <ImageView
         android:id="@+id/bgLugar"
         android:layout_width="wrap_content"
@@ -89,6 +102,20 @@
         android:layout_alignLeft="@id/bgVistoPor"
         android:layout_marginLeft="129dp"
         app:srcCompat="@drawable/bg_lugar"
+        />
+
+    <TextView
+        android:id="@+id/txtVistoNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgLugar"
+        android:layout_alignLeft="@id/bgLugar"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="6dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#FCFCFC"
+        android:text="Central"
         />
 
     <ImageView
@@ -101,6 +128,20 @@
         app:srcCompat="@drawable/bg_visto_hora"
         />
 
+    <TextView
+        android:id="@+id/txtVistoHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgVistoHora"
+        android:layout_alignLeft="@id/bgVistoHora"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@color/cinza"
+        android:text="12:15"
+        />
+
     <ImageView
         android:id="@+id/bgPrev"
         android:layout_width="wrap_content"
@@ -108,6 +149,19 @@
         android:layout_alignBottom="@id/bgBus"
         android:layout_marginLeft="93dp"
         app:srcCompat="@drawable/bg_prev"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgPrev"
+        android:layout_alignLeft="@id/bgPrev"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="6dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@color/cinza"
+        android:text="PREVISÃO"
         />
 
     <ImageView
@@ -120,6 +174,20 @@
         app:srcCompat="@drawable/bg_prev_lugar"
         />
 
+    <TextView
+        android:id="@+id/txtPrevLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgPrevLugar"
+        android:layout_alignLeft="@id/bgPrevLugar"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="6dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#FCFCFC"
+        android:text="No Central em"
+        />
+
     <ImageView
         android:id="@+id/bgPrevTempo"
         android:layout_width="wrap_content"
@@ -130,6 +198,20 @@
         app:srcCompat="@drawable/bg_prev_tempo"
         />
 
+    <TextView
+        android:id="@+id/txtPrevTempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgPrevTempo"
+        android:layout_alignLeft="@id/bgPrevTempo"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="4dp"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:textColor="@color/cinza"
+        android:text="08:20 min"
+        />
+
     <ImageView
         android:id="@+id/bgOndeEsta"
         android:layout_width="wrap_content"
@@ -138,5 +220,45 @@
         android:layout_alignLeft="@+id/bgBus"
         android:layout_marginBottom="15dp"
         app:srcCompat="@drawable/bg_onde_esta" />
+
+    <ImageView
+        android:id="@+id/localCeagri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bgOndeEsta"
+        android:layout_alignRight="@id/bgOndeEsta"
+        android:layout_marginBottom="42dp"
+        app:srcCompat="@drawable/local_ceagri"
+        />
+
+    <ImageView
+        android:id="@+id/localCegoe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/localCeagri"
+        android:layout_alignRight="@id/localCeagri"
+        android:layout_marginBottom="43dp"
+        app:srcCompat="@drawable/local_cegoe"
+        />
+
+    <ImageView
+        android:id="@+id/localCentral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/localCegoe"
+        android:layout_alignRight="@id/localCegoe"
+        android:layout_marginBottom="43dp"
+        app:srcCompat="@drawable/local_central"
+        />
+
+    <ImageView
+        android:id="@+id/localZootec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/localCentral"
+        android:layout_alignRight="@id/localCentral"
+        android:layout_marginBottom="43dp"
+        app:srcCompat="@drawable/local_zootec"
+        />
 
 </RelativeLayout>
