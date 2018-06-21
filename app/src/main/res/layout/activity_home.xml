@@ -628,13 +628,14 @@
         android:src="@drawable/loading" />
 
     <TextView
+        android:id="@+id/versao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:textSize="9dp"
         android:textColor="@color/cinza"
-        android:text="Versão: (Beta) 1.1.1"
+        android:text="Versão: Normal (Beta) "
         />
 
 </RelativeLayout>

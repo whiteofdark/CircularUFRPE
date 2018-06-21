@@ -215,23 +215,21 @@
 
     <ImageView
         android:id="@+id/spotted"
-        android:layout_width="328dp"
-        android:layout_height="147dp"
-        android:layout_below="@+id/star"
+        android:layout_width="291dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/tamanhoFila"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-102dp"
-        app:srcCompat="@drawable/spotted"
-        />
+        android:layout_marginTop="-2dp"
+        app:srcCompat="@drawable/spotted" />
 
     <ImageView
         android:id="@+id/soon"
-        android:layout_width="300dp"
+        android:layout_width="281dp"
         android:layout_height="130dp"
         android:layout_alignBottom="@+id/spotted"
         android:layout_alignLeft="@+id/spotted"
         android:layout_marginLeft="5dp"
-        android:src="@drawable/soon"
-        />
+        android:src="@drawable/soon" />
 
     <ImageView
         android:id="@+id/bgRu"
@@ -478,7 +476,7 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="164dp"
         android:layout_marginLeft="16dp"
         android:src="@drawable/vegetariano"
         />
@@ -512,7 +510,7 @@
         android:layout_height="20dp"
         android:layout_alignLeft="@id/bgRu"
         android:layout_alignTop="@id/bgRu"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="186dp"
         android:layout_marginLeft="16dp"
         android:src="@drawable/grelha"
         />
@@ -541,24 +539,16 @@
         />
 
     <TextView
+        android:id="@+id/tamanhoFila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bgRu"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-10dp"
         android:textStyle="bold"
         android:textColor="@color/cinza"
+        android:textSize="12dp"
         android:layout_centerHorizontal="true"
         android:text="FILA NA XEROX MATEMÁTICA"
-        />
-
-    <ImageView
-        android:id="@+id/star"
-        android:layout_width="320dp"
-        android:layout_height="231dp"
-        android:layout_below="@+id/bgRu"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="-90dp"
-        android:src="@drawable/star"
         />
 
     <ImageView
@@ -567,7 +557,7 @@
         android:layout_height="37dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/bgBus"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="4dp"
         app:srcCompat="@drawable/bg_onde_esta" />
     <ImageView
         android:id="@+id/bgOndeEsta2"
@@ -575,7 +565,7 @@
         android:layout_height="37dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/bgBus"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="4dp"
         app:srcCompat="@drawable/bg_onde_esta2" />
 
     <ImageView
@@ -594,7 +584,7 @@
         android:layout_height="43dp"
         android:layout_alignBottom="@id/localCeagri"
         android:layout_alignRight="@id/localCeagri"
-        android:layout_marginBottom="43dp"
+        android:layout_marginBottom="42dp"
         app:srcCompat="@drawable/local_cegoe"
         />
 
@@ -627,13 +617,15 @@
         android:src="@drawable/loading" />
 
     <TextView
+        android:id="@+id/versao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
         android:textSize="9dp"
         android:textColor="@color/cinza"
-        android:text="Versão: (Beta) 1.0"
+        android:text="Versão Small: (Beta) "
         />
 
 </RelativeLayout>

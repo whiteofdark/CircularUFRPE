@@ -1,12 +1,10 @@
 package net.alunando.circularufrpe;
 
+import android.content.res.Resources;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +13,6 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
-import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -37,7 +34,7 @@ public class Home extends AppCompatActivity {
 
     GifImageView loading;
 
-    TextView txtVistoNo, txtVistoHora, txtPrevLocal, txtPrevTempo;
+    TextView txtVistoNo, txtVistoHora, txtPrevLocal, txtPrevTempo, versao;
 
     TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo, txtGuarnicao, txtPrincipal, txtSobremesa, txtSuco, txtFast, txtVegetariano, txtGrelha;
 
@@ -49,7 +46,16 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_home);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_home_small);
+        } else {
+            setContentView(R.layout.activity_home);
+        }
+
+
+
+        versao = (TextView) findViewById(R.id.versao);
 
         btnMenu = (ImageView) findViewById(R.id.btnMenu);
 
@@ -75,6 +81,10 @@ public class Home extends AppCompatActivity {
 
         loading.setVisibility(View.INVISIBLE);
         soon.setVisibility(View.INVISIBLE);
+
+
+        String vers = versao.getText().toString();
+        versao.setText(vers + BuildConfig.VERSION_NAME);
 
         atualizaRU();
         atualizaCircular();
@@ -200,16 +210,20 @@ public class Home extends AppCompatActivity {
                 txtPrevLocal = (TextView) findViewById(R.id.txtPrevLocal);
                 txtPrevTempo = (TextView) findViewById(R.id.txtPrevTempo);
 
-                final String[] tempo1 = txtVistoHora.getText().toString().split(":");
+                final String[] tempo1 = txtVistoHora.getText().toString().split("(?<=:)");
+                final String[] tempo2 = txtVistoHora.getText().toString().split("(?=:)");
                 int num = Integer.valueOf(tempo1[1]);
-                int minuto, hora;
+                int num2 = Integer.valueOf(tempo2[0]);
+                int segundo, minuto, hora;
                 Date horaAtual = new Date();
                 SimpleDateFormat horaFormatada = new SimpleDateFormat("mm");
                 SimpleDateFormat horaFormatada2 = new SimpleDateFormat("H");
+                SimpleDateFormat horaFormatada3 = new SimpleDateFormat("ss");
+                segundo = Integer.valueOf(horaFormatada.format(horaAtual));
                 minuto = Integer.valueOf(horaFormatada.format(horaAtual));
                 hora = Integer.valueOf(horaFormatada2.format(horaAtual));
 
-                System.out.println("num: " + num);
+                System.out.println("txtVistoHora" + txtVistoHora.getText() +"tempo1[0]: " + num2 + " tempo1[1]: "+ num + " segundo do banco: " + segundo);
 
                 int tempo=0;
 
@@ -219,45 +233,45 @@ public class Home extends AppCompatActivity {
                 if (hora < 15 ){
                     if (local.equals("Central")){
                         localTemp = "Cegoe";
-                        tempo = (num * 60000) - (minuto * 60000) + 240000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 240000;
                     } else if (local.equals("Cegoe")){
                         localTemp = "Zootec";
-                        tempo = (num * 60000) - (minuto * 60000) + 420000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 420000;
                     } else if (local.equals("Zootec")){
                         localTemp = "Ceagri";
-                        tempo = (num * 60000) - (minuto * 60000) + 1200000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 1200000;
                     } else if (local.equals("Ceagri")){
                         localTemp = "Central";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else {
                         localTemp = "";
                     }
                 } else  if (hora < 18){
                     if (local.equals("Central")){
                         localTemp = "Ceagri";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else if (local.equals("Ceagri")){
                         localTemp = "Zootec";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 900000;
                     } else if (local.equals("Zootec")){
                         localTemp = "Cegoe";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else if (local.equals("Cegoe")){
                         localTemp = "Central";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 480000;
                     } else {
                         localTemp = "";
                     }
                 } else {
                     if (local.equals("Central")){
                         localTemp = "Ceagri";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else if (local.equals("Ceagri")){
                         localTemp = "Cegoe";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else if (local.equals("Cegoe")){
                         localTemp = "Central";
-                        tempo = (num * 60000) - (minuto * 60000) + 600000;
+                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
                     } else {
                         localTemp = "";
                     }
@@ -361,7 +375,7 @@ public class Home extends AppCompatActivity {
                                 Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
                             }
                         } catch (Exception erro){
-                            Toast.makeText(Home.this, "Ops! Ocorreu um erro" + erro, Toast.LENGTH_LONG).show();
+                            Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 20 - " + erro, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -485,6 +499,18 @@ public class Home extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
     }
 
 }
