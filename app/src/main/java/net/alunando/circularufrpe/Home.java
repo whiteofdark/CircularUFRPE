@@ -27,7 +27,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class Home extends AppCompatActivity {
 
     String localTemp="";
-    CountDownTimer myCountDownTimer;
+    CountDownTimer myCountDownTimer, myCountDownTimer2;
 
     ImageView localZootec, localCentral, localCegoe, localCeagri, bgOndeEsta;
     ImageView btnRefresh, bgOndeEsta2, spotted, soon, btnMenu;
@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
             setContentView(R.layout.activity_home);
         }
 
-
+        atualizaAutomatico();
 
         versao = (TextView) findViewById(R.id.versao);
 
@@ -86,8 +86,9 @@ public class Home extends AppCompatActivity {
         String vers = versao.getText().toString();
         versao.setText(vers + BuildConfig.VERSION_NAME);
 
-        atualizaRU();
-        atualizaCircular();
+        //Métodos recebem a variável auto para quando atualizar automáticamente não ficar irritando o usuário com mensagens na tela o tempo to do
+        atualizaRU(1);
+        atualizaCircular(1);
 
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,111 +202,9 @@ public class Home extends AppCompatActivity {
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Home.this, "Atualizando, aguarde...", Toast.LENGTH_SHORT).show();
-                atualizaCircular();
-                atualizaRU();
-
-                txtVistoNo = (TextView) findViewById(R.id.txtVistoNo);
-                txtVistoHora = (TextView) findViewById(R.id.txtVistoHora);
-                txtPrevLocal = (TextView) findViewById(R.id.txtPrevLocal);
-                txtPrevTempo = (TextView) findViewById(R.id.txtPrevTempo);
-
-                final String[] tempo1 = txtVistoHora.getText().toString().split("(?<=:)");
-                final String[] tempo2 = txtVistoHora.getText().toString().split("(?=:)");
-                int num = Integer.valueOf(tempo1[1]);
-                int num2 = Integer.valueOf(tempo2[0]);
-                int segundo, minuto, hora;
-                Date horaAtual = new Date();
-                SimpleDateFormat horaFormatada = new SimpleDateFormat("mm");
-                SimpleDateFormat horaFormatada2 = new SimpleDateFormat("H");
-                SimpleDateFormat horaFormatada3 = new SimpleDateFormat("ss");
-                segundo = Integer.valueOf(horaFormatada.format(horaAtual));
-                minuto = Integer.valueOf(horaFormatada.format(horaAtual));
-                hora = Integer.valueOf(horaFormatada2.format(horaAtual));
-
-                System.out.println("txtVistoHora" + txtVistoHora.getText() +"tempo1[0]: " + num2 + " tempo1[1]: "+ num + " segundo do banco: " + segundo);
-
-                int tempo=0;
-
-                final String local = txtVistoNo.getText().toString();
-
-                System.out.println("hora atual: " + hora + "local: " + local +"|");
-                if (hora < 15 ){
-                    if (local.equals("Central")){
-                        localTemp = "Cegoe";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 240000;
-                    } else if (local.equals("Cegoe")){
-                        localTemp = "Zootec";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 420000;
-                    } else if (local.equals("Zootec")){
-                        localTemp = "Ceagri";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 1200000;
-                    } else if (local.equals("Ceagri")){
-                        localTemp = "Central";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else {
-                        localTemp = "";
-                    }
-                } else  if (hora < 18){
-                    if (local.equals("Central")){
-                        localTemp = "Ceagri";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else if (local.equals("Ceagri")){
-                        localTemp = "Zootec";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 900000;
-                    } else if (local.equals("Zootec")){
-                        localTemp = "Cegoe";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else if (local.equals("Cegoe")){
-                        localTemp = "Central";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 480000;
-                    } else {
-                        localTemp = "";
-                    }
-                } else {
-                    if (local.equals("Central")){
-                        localTemp = "Ceagri";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else if (local.equals("Ceagri")){
-                        localTemp = "Cegoe";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else if (local.equals("Cegoe")){
-                        localTemp = "Central";
-                        tempo = (num * 60000 + (num2 * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
-                    } else {
-                        localTemp = "";
-                    }
-                }
-
-
-                // SE O TEMPO FOR MAIOR QUE 20MIN IRÁ ZERAR / GAMBIARRA = Programar forma melhor de corrigir isso
-                if (tempo > 1300000){
-                    tempo = 2000;
-                }
-
-
-                if (myCountDownTimer != null) {
-                    myCountDownTimer.cancel();
-                }
-                myCountDownTimer = new CountDownTimer(tempo, 1000) {
-
-                    public void onTick(long millisUntilFinished) {
-
-                        NumberFormat f = new DecimalFormat("00");
-                        long hour = (millisUntilFinished / 3600000) % 24;
-                        long min = (millisUntilFinished / 60000) % 60;
-                        long sec = (millisUntilFinished / 1000) % 60;
-
-                        txtPrevLocal.setText("No "+ localTemp + " em");
-                        txtPrevTempo.setText(f.format(min) +':'+ f.format(sec) + " min");
-                    }
-
-                    public void onFinish() {
-                        txtPrevLocal.setText("ATUALIZE!");
-                        txtPrevTempo.setText("00:00 min");
-                    }
-                };
-                myCountDownTimer.start();
+                atualizaCircular(0);
+                atualizaRU(0);
+                previsao();
 
             }
         });
@@ -337,7 +236,7 @@ public class Home extends AppCompatActivity {
         }
     }
 
-    public void atualizaCircular(){
+    public void atualizaCircular(final int auto){
         String url = HOST + "/circular_recebe.php";
 
         // txtVistoNo = (TextView) findViewById(R.id.txtVistoNo);
@@ -350,6 +249,10 @@ public class Home extends AppCompatActivity {
         txtPrevLocal = (TextView) findViewById(R.id.txtPrevLocal);
         txtPrevTempo = (TextView) findViewById(R.id.txtPrevTempo);
 
+        if (auto==0){
+            Toast.makeText(Home.this, "Atualizando, aguarde...", Toast.LENGTH_SHORT).show();
+        }
+
         Ion.with(Home.this)
                 .load(url)
                 .asJsonObject()
@@ -361,7 +264,9 @@ public class Home extends AppCompatActivity {
                             String RETORNO = result.get("RECEBE").getAsString();
 
                             if (RETORNO.equals("ERRO")){
-                                Toast.makeText(Home.this, "Houve um erro no php!", Toast.LENGTH_SHORT).show();
+                                if(auto==0){
+                                    Toast.makeText(Home.this, "Houve um erro no php!", Toast.LENGTH_SHORT).show();
+                                }
                             } else if (RETORNO.equals("SUCESSO")){
 
                                 String local = result.get("LOCAL").getAsString();
@@ -370,16 +275,21 @@ public class Home extends AppCompatActivity {
                                 String[] local2 = hora.split("(?=:)");
                                 txtVistoHora.setText(local2[0]+local2[1]);
 
-                                Toast.makeText(Home.this, "Atualizado!", Toast.LENGTH_SHORT).show();
+                                if(auto==0){
+                                    Toast.makeText(Home.this, "Atualizado!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
+                                if(auto==0){
+                                    Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
+                                }
                             }
                         } catch (Exception erro){
-                            Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 20 - " + erro, Toast.LENGTH_LONG).show();
+                           if (auto==0){
+                               Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 20 - " + erro, Toast.LENGTH_LONG).show();
+                           }
                         }
                     }
                 });
-
     }
 
     public void enviaDados (String local) {
@@ -427,7 +337,7 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void atualizaRU(){
+    public void atualizaRU(final int auto){
         String url = HOST + "/ru_recebe.php";
 
         txtSalada = (TextView) findViewById(R.id.txtSalada);
@@ -475,7 +385,9 @@ public class Home extends AppCompatActivity {
                             String RETORNO = result.get("RECEBE").getAsString();
 
                             if (RETORNO.equals("ERRO")){
-                                Toast.makeText(Home.this, "Houve um erro no php!", Toast.LENGTH_LONG).show();
+                                if(auto==0){
+                                    Toast.makeText(Home.this, "Houve um erro no php!", Toast.LENGTH_LONG).show();
+                                }
                             } else if (RETORNO.equals("SUCESSO")){
 
                                 txtSalada.setText(result.get("SALADA").getAsString());
@@ -489,12 +401,18 @@ public class Home extends AppCompatActivity {
                                 txtRefeicaoData.setText(result.get("DATA").getAsString());
                                 txtRefeicaoTipo.setText(result.get("TIPO").getAsString());
 
-                                Toast.makeText(Home.this, "Atualizado!", Toast.LENGTH_SHORT).show();
+                                if(auto==0){
+                                    Toast.makeText(Home.this, "Atualizado!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
+                                if (auto==0){
+                                    Toast.makeText(Home.this, "Erro: 1212!", Toast.LENGTH_LONG).show();
+                                }
                             }
                         } catch (Exception erro){
-                            Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 22 - " + erro, Toast.LENGTH_LONG).show();
+                            if (auto==0){
+                                Toast.makeText(Home.this, "Ops! Ocorreu um erro: ERRO 22 - " + erro, Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
                 });
@@ -511,6 +429,138 @@ public class Home extends AppCompatActivity {
         } else {
             return largura;
         }
+    }
+
+    public void atualizaAutomatico() {
+
+        if (myCountDownTimer2 != null) {
+            myCountDownTimer2.cancel();
+        }
+        myCountDownTimer2 = new CountDownTimer(600000, 10000) {
+
+            public void onTick(long millisUntilFinished) {
+                atualizaCircular(1);
+                previsao();
+            }
+
+            public void onFinish() {
+                //System.out.println("Automático terminou");
+            }
+        };
+        myCountDownTimer2.start();
+    }
+
+    public void previsao(){
+        txtVistoNo = (TextView) findViewById(R.id.txtVistoNo);
+        txtVistoHora = (TextView) findViewById(R.id.txtVistoHora);
+        txtPrevLocal = (TextView) findViewById(R.id.txtPrevLocal);
+        txtPrevTempo = (TextView) findViewById(R.id.txtPrevTempo);
+
+        final String[] tempo1 = txtVistoHora.getText().toString().split("(?<=:)");
+        final String[] tempo2 = txtVistoHora.getText().toString().split("(?=:)");
+        int horaVisto = Integer.valueOf(tempo2[0]);
+        int minutoVisto = Integer.valueOf(tempo1[1]);
+        int segundo, minuto, hora;
+        Date horaAtual = new Date();
+        SimpleDateFormat horaFormatada = new SimpleDateFormat("H");
+        SimpleDateFormat horaFormatada2 = new SimpleDateFormat("mm");
+        SimpleDateFormat horaFormatada3 = new SimpleDateFormat("ss");
+        hora = Integer.valueOf(horaFormatada.format(horaAtual));
+        minuto = Integer.valueOf(horaFormatada2.format(horaAtual));
+        segundo = Integer.valueOf(horaFormatada3.format(horaAtual));
+
+        int tempo=0;
+
+        final String local = txtVistoNo.getText().toString();
+
+        if (hora < 15 ){
+            if (local.equals("Central")){
+                localTemp = "Cegoe";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 240000;
+            } else if (local.equals("Cegoe")){
+                localTemp = "Zootec";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 420000;
+            } else if (local.equals("Zootec")){
+                localTemp = "Ceagri";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 1200000;
+            } else if (local.equals("Ceagri")){
+                localTemp = "Central";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else {
+                localTemp = "";
+            }
+        } else  if (hora < 18){
+            if (local.equals("Central")){
+                localTemp = "Ceagri";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else if (local.equals("Ceagri")){
+                localTemp = "Zootec";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 900000;
+            } else if (local.equals("Zootec")){
+                localTemp = "Cegoe";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else if (local.equals("Cegoe")){
+                localTemp = "Central";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 480000;
+            } else {
+                localTemp = "";
+            }
+        } else {
+            if (local.equals("Central")){
+                localTemp = "Ceagri";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else if (local.equals("Ceagri")){
+                localTemp = "Cegoe";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else if (local.equals("Cegoe")){
+                localTemp = "Central";
+                tempo = (minutoVisto * 60000 + (horaVisto * 1000)) - (minuto * 60000 + (segundo * 1000)) + 600000;
+            } else {
+                localTemp = "";
+            }
+        }
+
+        // Calculo da hora prevista para a chegada no próximo ponto
+
+        int momentoVisto = (horaVisto * 60 * 60 * 1000) + (minutoVisto * 60 * 1000);
+        int momentoChegar = momentoVisto + tempo;
+        final int horaChegar = momentoChegar / 3600000;
+        final int minChegar = ( momentoChegar / 60000 ) % 60;
+        final String gambMinuto;
+        if (minChegar==0){
+            gambMinuto = "0";
+        } else {
+            gambMinuto = "";
+        }
+
+        // SE O TEMPO FOR MAIOR QUE 20MIN IRÁ ZERAR / GAMBIARRA = Programar forma melhor de corrigir isso
+        if (tempo > 1300000){
+            tempo = 2000;
+        }
+
+
+        if (myCountDownTimer != null) {
+            myCountDownTimer.cancel();
+        }
+        myCountDownTimer = new CountDownTimer(tempo, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+
+                NumberFormat f = new DecimalFormat("00");
+                long hour = (millisUntilFinished / 3600000) % 24;
+                long min = (millisUntilFinished / 60000) % 60;
+                long sec = (millisUntilFinished / 1000) % 60;
+
+                txtPrevLocal.setText("No "+ localTemp + " em");
+                txtPrevTempo.setText(f.format(min) +':'+ f.format(sec) + " min");
+            }
+
+            public void onFinish() {
+                txtPrevLocal.setText("No " + localTemp);
+                txtPrevTempo.setText("às " + horaChegar + ":" + minChegar + gambMinuto);
+            }
+        };
+        myCountDownTimer.start();
     }
 
 }
