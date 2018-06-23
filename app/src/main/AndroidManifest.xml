@@ -3,11 +3,11 @@
     package="net.alunando.circularufrpe">
 
     <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
-        android:anyDensity="true"/>
+        android:xlargeScreens="true" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Spotted"></activity>
     </application>
 
 </manifest>

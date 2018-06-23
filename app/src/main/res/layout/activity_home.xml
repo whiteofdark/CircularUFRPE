@@ -224,16 +224,6 @@
         />
 
     <ImageView
-        android:id="@+id/soon"
-        android:layout_width="318dp"
-        android:layout_height="145dp"
-        android:layout_alignBottom="@+id/spotted"
-        android:layout_alignLeft="@+id/spotted"
-        android:layout_marginLeft="5dp"
-        android:src="@drawable/soon"
-        />
-
-    <ImageView
         android:id="@+id/bgRu"
         android:layout_width="351dp"
         android:layout_height="247dp"
@@ -269,6 +259,199 @@
         android:text="XXXX"
         />
 
+    <HorizontalScrollView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_alignLeft="@id/bgRu"
+        android:layout_alignTop="@id/bgRu"
+        android:layout_marginTop="29dp"
+        android:layout_marginLeft="26dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/bgSalada"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="74dp"
+                android:src="@drawable/bg_pratos"
+                />
+            <TextView
+                android:id="@+id/txtSalada"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgSalada"
+                android:layout_alignLeft="@id/bgSalada"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="1dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgGuarnicao"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="94dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtGuarnicao"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgGuarnicao"
+                android:layout_alignLeft="@id/bgGuarnicao"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgPrincipal"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="47dp"
+                android:layout_marginLeft="84dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtPrincipal"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgPrincipal"
+                android:layout_alignLeft="@id/bgPrincipal"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgSobremesa"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="93dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtSobremesa"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgSobremesa"
+                android:layout_alignLeft="@id/bgSobremesa"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgSuco"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="93dp"
+                android:layout_marginLeft="59dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtSuco"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgSuco"
+                android:layout_alignLeft="@id/bgSuco"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgFast"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="115dp"
+                android:layout_marginLeft="85dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtFast"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgFast"
+                android:layout_alignLeft="@id/bgFast"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgVegetariano"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="138dp"
+                android:layout_marginLeft="100dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtVegetariano"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgVegetariano"
+                android:layout_alignLeft="@id/bgVegetariano"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+            <ImageView
+                android:id="@+id/bgGrelha"
+                android:layout_width="391dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="162dp"
+                android:layout_marginLeft="75dp"
+                android:src="@drawable/bg_pratos"
+                />
+
+            <TextView
+                android:id="@+id/txtGrelha"
+                android:layout_width="391dp"
+                android:layout_height="16dp"
+                android:layout_alignTop="@id/bgGrelha"
+                android:layout_alignLeft="@id/bgGrelha"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:textSize="11dp"
+                android:textColor="@color/branco"
+                android:text="SEM DADOS!"
+                />
+
+        </RelativeLayout>
+
+    </HorizontalScrollView>
+
     <ImageView
         android:id="@+id/salada"
         android:layout_width="80dp"
@@ -278,29 +461,6 @@
         android:layout_marginTop="29dp"
         android:layout_marginLeft="26dp"
         android:src="@drawable/salada"
-        />
-
-    <ImageView
-        android:id="@+id/bgSalada"
-        android:layout_width="223dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/salada"
-        android:layout_alignLeft="@id/salada"
-        android:layout_marginLeft="74dp"
-        android:src="@drawable/bg_salada"
-        />
-
-    <TextView
-        android:id="@+id/txtSalada"
-        android:layout_width="223dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgSalada"
-        android:layout_alignLeft="@id/bgSalada"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="1dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
         />
 
     <ImageView
@@ -315,29 +475,6 @@
         />
 
     <ImageView
-        android:id="@+id/bgGuarnicao"
-        android:layout_width="202dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/guarnicao"
-        android:layout_alignLeft="@id/guarnicao"
-        android:layout_marginLeft="94dp"
-        android:src="@drawable/bg_guarnicao"
-        />
-
-    <TextView
-        android:id="@+id/txtGuarnicao"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgGuarnicao"
-        android:layout_alignLeft="@id/bgGuarnicao"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
-        />
-
-    <ImageView
         android:id="@+id/principal"
         android:layout_width="90dp"
         android:layout_height="20dp"
@@ -346,29 +483,6 @@
         android:layout_marginTop="76dp"
         android:layout_marginLeft="27dp"
         android:src="@drawable/principal"
-        />
-
-    <ImageView
-        android:id="@+id/bgPrincipal"
-        android:layout_width="212dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/principal"
-        android:layout_alignLeft="@id/principal"
-        android:layout_marginLeft="84dp"
-        android:src="@drawable/bg_principal"
-        />
-
-    <TextView
-        android:id="@+id/txtPrincipal"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgPrincipal"
-        android:layout_alignLeft="@id/bgPrincipal"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
         />
 
     <ImageView
@@ -383,29 +497,6 @@
         />
 
     <ImageView
-        android:id="@+id/bgSobremesa"
-        android:layout_width="203dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/sobremesa"
-        android:layout_alignLeft="@id/sobremesa"
-        android:layout_marginLeft="93dp"
-        android:src="@drawable/bg_sobremesa"
-        />
-
-    <TextView
-        android:id="@+id/txtSobremesa"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgSobremesa"
-        android:layout_alignLeft="@id/bgSobremesa"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
-        />
-
-    <ImageView
         android:id="@+id/suco"
         android:layout_width="65dp"
         android:layout_height="20dp"
@@ -414,29 +505,6 @@
         android:layout_marginTop="122dp"
         android:layout_marginLeft="27dp"
         android:src="@drawable/suco"
-        />
-
-    <ImageView
-        android:id="@+id/bgSuco"
-        android:layout_width="236dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/suco"
-        android:layout_alignLeft="@id/suco"
-        android:layout_marginLeft="59dp"
-        android:src="@drawable/bg_suco"
-        />
-
-    <TextView
-        android:id="@+id/txtSuco"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgSuco"
-        android:layout_alignLeft="@id/bgSuco"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
         />
 
     <ImageView
@@ -451,29 +519,6 @@
         />
 
     <ImageView
-        android:id="@+id/bgFast"
-        android:layout_width="210dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/fast"
-        android:layout_alignLeft="@id/fast"
-        android:layout_marginLeft="85dp"
-        android:src="@drawable/bg_fast"
-        />
-
-    <TextView
-        android:id="@+id/txtFast"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgFast"
-        android:layout_alignLeft="@id/bgFast"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
-        />
-
-    <ImageView
         android:id="@+id/vegetariano"
         android:layout_width="105dp"
         android:layout_height="20dp"
@@ -485,29 +530,6 @@
         />
 
     <ImageView
-        android:id="@+id/bgVegetariano"
-        android:layout_width="194dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/vegetariano"
-        android:layout_alignLeft="@id/vegetariano"
-        android:layout_marginLeft="100dp"
-        android:src="@drawable/bg_vegetariano"
-        />
-
-    <TextView
-        android:id="@+id/txtVegetariano"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgVegetariano"
-        android:layout_alignLeft="@id/bgVegetariano"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
-        />
-
-    <ImageView
         android:id="@+id/grelha"
         android:layout_width="79dp"
         android:layout_height="20dp"
@@ -516,29 +538,6 @@
         android:layout_marginTop="190dp"
         android:layout_marginLeft="27dp"
         android:src="@drawable/grelha"
-        />
-
-    <ImageView
-        android:id="@+id/bgGrelha"
-        android:layout_width="219dp"
-        android:layout_height="20dp"
-        android:layout_alignTop="@id/grelha"
-        android:layout_alignLeft="@id/grelha"
-        android:layout_marginLeft="75dp"
-        android:src="@drawable/bg_grelha"
-        />
-
-    <TextView
-        android:id="@+id/txtGrelha"
-        android:layout_width="186dp"
-        android:layout_height="16dp"
-        android:layout_alignTop="@id/bgGrelha"
-        android:layout_alignLeft="@id/bgGrelha"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="2dp"
-        android:textSize="11dp"
-        android:textColor="@color/branco"
-        android:text="SEM DADOS!"
         />
 
     <TextView

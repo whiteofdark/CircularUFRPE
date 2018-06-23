@@ -1,5 +1,6 @@
 package net.alunando.circularufrpe;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class Home extends AppCompatActivity {
     CountDownTimer myCountDownTimer, myCountDownTimer2;
 
     ImageView localZootec, localCentral, localCegoe, localCeagri, bgOndeEsta;
-    ImageView btnRefresh, bgOndeEsta2, spotted, soon, btnMenu;
+    ImageView btnRefresh, bgOndeEsta2, spotted, btnMenu;
 
     GifImageView loading;
 
@@ -60,7 +61,6 @@ public class Home extends AppCompatActivity {
         btnMenu = (ImageView) findViewById(R.id.btnMenu);
 
         spotted = (ImageView) findViewById(R.id.spotted);
-        soon = (ImageView) findViewById(R.id.soon);
 
         loading = (GifImageView) findViewById(R.id.loading);
 
@@ -80,7 +80,6 @@ public class Home extends AppCompatActivity {
         bgOndeEsta2.setVisibility(View.INVISIBLE);
 
         loading.setVisibility(View.INVISIBLE);
-        soon.setVisibility(View.INVISIBLE);
 
 
         String vers = versao.getText().toString();
@@ -100,13 +99,8 @@ public class Home extends AppCompatActivity {
         spotted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (controlSpotted==0){
-                    soon.setVisibility(View.VISIBLE);
-                    controlSpotted = 1;
-                } else {
-                    soon.setVisibility(View.INVISIBLE);
-                    controlSpotted = 0;
-                }
+                Intent abreSpotted = new Intent(Home.this, Spotted.class);
+                startActivity(abreSpotted);
             }
         });
 
@@ -436,7 +430,7 @@ public class Home extends AppCompatActivity {
         if (myCountDownTimer2 != null) {
             myCountDownTimer2.cancel();
         }
-        myCountDownTimer2 = new CountDownTimer(600000, 10000) {
+        myCountDownTimer2 = new CountDownTimer(600000, 5000) {
 
             public void onTick(long millisUntilFinished) {
                 atualizaCircular(1);
@@ -526,18 +520,24 @@ public class Home extends AppCompatActivity {
         int momentoChegar = momentoVisto + tempo;
         final int horaChegar = momentoChegar / 3600000;
         final int minChegar = ( momentoChegar / 60000 ) % 60;
-        final String gambMinuto;
-        if (minChegar==0){
+
+        final String gambMinuto, gambMinuto2;
+
+        if (minChegar == 0){
             gambMinuto = "0";
         } else {
             gambMinuto = "";
         }
+        if (minChegar < 10){
+            gambMinuto2 = "0";
+        } else {
+            gambMinuto2 = "";
+        }
 
         // SE O TEMPO FOR MAIOR QUE 20MIN IRÁ ZERAR / GAMBIARRA = Programar forma melhor de corrigir isso
         if (tempo > 1300000){
-            tempo = 2000;
+            tempo = 0;
         }
-
 
         if (myCountDownTimer != null) {
             myCountDownTimer.cancel();
@@ -557,7 +557,7 @@ public class Home extends AppCompatActivity {
 
             public void onFinish() {
                 txtPrevLocal.setText("No " + localTemp);
-                txtPrevTempo.setText("às " + horaChegar + ":" + minChegar + gambMinuto);
+                txtPrevTempo.setText("às " + horaChegar + ":" + gambMinuto2 + minChegar + gambMinuto);
             }
         };
         myCountDownTimer.start();
