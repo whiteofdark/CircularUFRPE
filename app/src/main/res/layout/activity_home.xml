@@ -430,7 +430,7 @@
                 android:id="@+id/bgGrelha"
                 android:layout_width="391dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="162dp"
+                android:layout_marginTop="161dp"
                 android:layout_marginLeft="75dp"
                 android:src="@drawable/bg_pratos"
                 />

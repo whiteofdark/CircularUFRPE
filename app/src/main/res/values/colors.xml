@@ -7,4 +7,8 @@
     <color name="cabecalho">#303030</color>
     <color name="cinza">#B2B2B2</color>
     <color name="branco">#FFF</color>
+    <color name="verde">#00897B</color>
+    <color name="cinzaEscuro">#555555</color>
+    <color name="cinzaClaro">#B8B8B8</color>
+    <color name="cinzaMedio">#707070</color>
 </resources>

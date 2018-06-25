@@ -2,6 +2,7 @@ package net.alunando.circularufrpe;
 
 public class Usuario {
     private int id;
+    private String nickname;
     private String nome;
     private String email;
     private String senha;
@@ -23,6 +24,14 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getNome() {

@@ -6,6 +6,7 @@ public class Post {
     private String data;
     private String hora;
     private int likes;
+    private int comments;
     private String texto;
 
     public Post(int id, int usuario, String data, String hora, int likes, String texto) {
@@ -15,6 +16,14 @@ public class Post {
         this.hora = hora;
         this.likes = likes;
         this.texto = texto;
+    }
+
+    public int getComments() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
     }
 
     public int getId() {
