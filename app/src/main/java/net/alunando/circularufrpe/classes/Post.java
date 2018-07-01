@@ -1,4 +1,4 @@
-package net.alunando.circularufrpe;
+package net.alunando.circularufrpe.classes;
 
 public class Post {
     private int id;

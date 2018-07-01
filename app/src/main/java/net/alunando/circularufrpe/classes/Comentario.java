@@ -1,14 +1,16 @@
-package net.alunando.circularufrpe;
+package net.alunando.circularufrpe.classes;
 
 public class Comentario {
     private int id;
-    private int post;
-    private int usuario;
+    private Post post;
+    Usuario usuario;
     private String data;
     private String hora;
     private String texto;
 
-    public Comentario(int id, int post, int usuario, String data, String hora, String texto) {
+    public Comentario(){}
+
+    public Comentario(int id, Post post, Usuario usuario, String data, String hora, String texto) {
         this.id = id;
         this.post = post;
         this.usuario = usuario;
@@ -25,19 +27,19 @@ public class Comentario {
         this.id = id;
     }
 
-    public int getPost() {
+    public Post getPost() {
         return post;
     }
 
-    public void setPost(int post) {
+    public void setPost(Post post) {
         this.post = post;
     }
 
-    public int getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(int usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

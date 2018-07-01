@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Perfil">
+
+    <TextView
+        android:id="@+id/lblNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: "
+        />
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblNome"
+        android:layout_marginLeft="45dp"
+        android:text="Bla..."
+        />
+
+    <TextView
+        android:id="@+id/lblNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblNome"
+        android:text="Nickname: "
+        />
+    <TextView
+        android:id="@+id/txtNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblNickname"
+        android:layout_alignBaseline="@id/lblNickname"
+        android:layout_marginLeft="72dp"
+        android:text="Bla..."
+        />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblNickname"
+        android:text="Email: "
+        />
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblEmail"
+        android:layout_alignBaseline="@id/lblEmail"
+        android:layout_marginLeft="43dp"
+        android:text="Bla..."
+        />
+
+    <TextView
+        android:id="@+id/lblAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblEmail"
+        android:text="Avatar: "
+        />
+    <TextView
+        android:id="@+id/txtAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblAvatar"
+        android:layout_alignBaseline="@id/lblAvatar"
+        android:layout_marginLeft="50dp"
+        android:text="Bla..."
+        />
+
+</RelativeLayout>

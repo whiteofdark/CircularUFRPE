@@ -28,7 +28,16 @@
         <activity
             android:name=".Spotted"
             android:theme="@style/MyTheme" />
-        <activity android:name=".SpottedComments" android:theme="@style/MyTheme"></activity>
+        <activity
+            android:name=".SpottedComments"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Sobre" />
+        <activity android:name=".Perfil"
+            android:theme="@style/AppTheme"
+            ></activity>
     </application>
 
 </manifest>

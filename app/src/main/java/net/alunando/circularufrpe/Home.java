@@ -1,10 +1,16 @@
 package net.alunando.circularufrpe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +19,8 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+
+import net.alunando.circularufrpe.classes.Usuario;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -25,13 +33,13 @@ import java.util.concurrent.TimeUnit;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     String localTemp="";
     CountDownTimer myCountDownTimer, myCountDownTimer2;
 
     ImageView localZootec, localCentral, localCegoe, localCeagri, bgOndeEsta;
-    ImageView btnRefresh, bgOndeEsta2, spotted, btnMenu;
+    ImageView btnRefresh, bgOndeEsta2, spotted;
 
     GifImageView loading;
 
@@ -39,14 +47,18 @@ public class Home extends AppCompatActivity {
 
     TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo, txtGuarnicao, txtPrincipal, txtSobremesa, txtSuco, txtFast, txtVegetariano, txtGrelha;
 
-    int controlMenu=0, controlSpotted=0;
-
     private String HOST = "http://alunando.net/android/circular";
+
+    int controlMenu=0;
+
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
+
+    protected Usuario usuarioLogado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
 
         if (screenSize() < 720){
             setContentView(R.layout.activity_home_small);
@@ -57,8 +69,6 @@ public class Home extends AppCompatActivity {
         atualizaAutomatico();
 
         versao = (TextView) findViewById(R.id.versao);
-
-        btnMenu = (ImageView) findViewById(R.id.btnMenu);
 
         spotted = (ImageView) findViewById(R.id.spotted);
 
@@ -81,25 +91,32 @@ public class Home extends AppCompatActivity {
 
         loading.setVisibility(View.INVISIBLE);
 
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         String vers = versao.getText().toString();
         versao.setText(vers + BuildConfig.VERSION_NAME);
+
+        verificaDados();
 
         //Métodos recebem a variável auto para quando atualizar automáticamente não ficar irritando o usuário com mensagens na tela o tempo to do
         atualizaRU(1);
         atualizaCircular(1);
 
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Home.this, "EM DESENVOLVIMENTO", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         spotted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent abreSpotted = new Intent(Home.this, Spotted.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("usuario", usuarioLogado);
+                abreSpotted.putExtras(bundle);
+
                 startActivity(abreSpotted);
             }
         });
@@ -193,15 +210,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                atualizaCircular(0);
-                atualizaRU(0);
-                previsao();
-
-            }
-        });
         // Deixei essa outra forma de fazer com classe para lembrar, mas a loga abaixo está funcionando
         // ATT - NADA FUNCIONA NESSA PORRA!!!! ATUALIZA NA MAO USUARIOP FDP
         //Nucleo dualCore = new Nucleo();
@@ -434,6 +442,7 @@ public class Home extends AppCompatActivity {
 
             public void onTick(long millisUntilFinished) {
                 atualizaCircular(1);
+                atualizaRU(1);
                 previsao();
             }
 
@@ -561,6 +570,115 @@ public class Home extends AppCompatActivity {
             }
         };
         myCountDownTimer.start();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        Intent abreSpotted = new Intent(Home.this, Spotted.class);
+        Intent abreLogin = new Intent(Home.this, Login.class);
+        Intent abreSobre = new Intent(Home.this, Sobre.class);
+        Intent abrePerfil = new Intent(Home.this, Perfil.class);
+
+        if (id == R.id.perfil){
+            startActivity(abrePerfil);
+        } else if (id == R.id.setting){
+            startActivity(abreSpotted);
+        } else if (id == R.id.logout){
+            removeSharedPreferences();
+        } else if (id == R.id.login){
+            if (verificaDadosLocais()){
+                //...
+            } else {
+                startActivity(abreLogin);
+            }
+        } else if (id == R.id.sobre){
+            startActivity(abreSobre);
+        }
+        return false;
+    }
+
+    public boolean verificaDadosLocais() {
+
+        SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+
+        String nome = pref.getString("nome", "");
+
+        if (!nome.isEmpty()) {
+            Toast.makeText(Home.this, ("Já está logado como " + nome), Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return false;
+    }
+
+    public void removeSharedPreferences()
+    {
+        SharedPreferences.Editor prefsEditor = getSharedPreferences("info", 0).edit();
+        prefsEditor.clear();
+        prefsEditor.commit();
+        Toast.makeText(Home.this, ("Saindo da sua conta..."), Toast.LENGTH_LONG).show();
+    }
+
+    public void verificaDados() {
+
+        SharedPreferences pref = getSharedPreferences("info", MODE_PRIVATE);
+
+        String token = pref.getString("token", "");
+
+        String URL = HOST + "/verifica.php";
+
+        if (!token.isEmpty()) {
+            Ion.with(Home.this)
+                    .load(URL)
+                    .setBodyParameter("token_app", token)
+                    .asJsonObject()
+                    .setCallback(new FutureCallback<JsonObject>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonObject result) {
+                            try {
+                                String RETORNO = result.get("LOGIN").getAsString();
+
+                                if (RETORNO.equals("ERRO")) {
+                                    Toast.makeText(Home.this, "Ops! Erro ao verificar sua conta", Toast.LENGTH_LONG).show();
+                                } else if (RETORNO.equals("SUCESSO")) {
+
+                                    int id = result.get("ID").getAsInt();
+                                    String nome = result.get("NOME").getAsString();
+                                    String nickname = result.get("NICKNAME").getAsString();
+                                    String email = result.get("EMAIL").getAsString();
+                                    String avatar = result.get("AVATAR").getAsString();
+
+                                    SharedPreferences.Editor pref = getSharedPreferences("info", MODE_PRIVATE).edit();
+
+                                    pref.putInt("id", id).apply();
+                                    pref.putString("nome", nome).apply();
+                                    pref.putString("nickname", nickname).apply();
+                                    pref.putString("email", email).apply();
+                                    pref.putString("avatar", avatar).apply();
+
+                                } else {
+                                    Toast.makeText(Home.this, "Ops! ERRO 12: ", Toast.LENGTH_LONG).show();
+                                }
+
+                            } catch (Exception erro) {
+                                Toast.makeText(Home.this, "Ops! ERRO 14: " + erro, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+        }
+
+        usuarioLogado = new Usuario(pref.getInt("id", 0), pref.getString("nome", ""), pref.getString("nickname", ""), pref.getString("email", ""), pref.getString("avatar", ""));
+
     }
 
 }

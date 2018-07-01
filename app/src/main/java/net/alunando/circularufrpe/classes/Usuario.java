@@ -1,6 +1,8 @@
-package net.alunando.circularufrpe;
+package net.alunando.circularufrpe.classes;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private int id;
     private String nickname;
     private String nome;
@@ -9,12 +11,13 @@ public class Usuario {
     private int token;
     private String avatar;
 
-    public Usuario(int id, String nome, String email, String senha, int token, String avatar) {
+    public Usuario(){}
+
+    public Usuario(int id, String nome, String nickname, String email, String avatar) {
         this.id = id;
         this.nome = nome;
+        this.nickname = nickname;
         this.email = email;
-        this.senha = senha;
-        this.token = token;
         this.avatar = avatar;
     }
 

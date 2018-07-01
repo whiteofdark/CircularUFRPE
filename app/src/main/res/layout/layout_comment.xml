@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/layoutComment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="334dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="13dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/avatar_1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        app:srcCompat="@drawable/avatar"
+        />
+
+    <TextView
+        android:id="@+id/txtNome_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/avatar_1"
+        android:layout_alignLeft="@id/avatar_1"
+        android:layout_marginLeft="32dp"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textColor="@color/cinzaEscuro"
+        android:text="Gato da saída do RU"
+        />
+
+    <TextView
+        android:id="@+id/txtData_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtNome_1"
+        android:layout_alignLeft="@+id/txtNome_1"
+        android:layout_marginTop="-5dp"
+        android:layout_marginRight="4dp"
+        android:textColor="@color/cinzaClaro"
+        android:textSize="10dp"
+        android:text="24/06/18 às 02:32"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/bgCommentTop"
+        android:layout_above="@id/bgCommentDown"
+        android:layout_marginTop="-2dp"
+        android:layout_marginBottom="7dp"
+        android:layout_alignLeft="@id/bgCommentTop"
+        android:background="@color/cinzaMedio" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="1dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/bgCommentTop"
+        android:layout_above="@id/bgCommentDown"
+        android:layout_marginTop="-2dp"
+        android:layout_marginBottom="7dp"
+        android:layout_alignRight="@id/bgCommentTop"
+        android:background="@color/cinzaMedio" />
+
+    <ImageView
+        android:id="@+id/bgCommentTop"
+        android:layout_width="309dp"
+        android:layout_height="31dp"
+        android:layout_below="@+id/avatar_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/bg_comment_top"
+        />
+
+    <ImageView
+        android:id="@+id/bgCommentDown"
+        android:layout_width="309dp"
+        android:layout_height="31dp"
+        android:layout_below="@+id/txtComentarioPostado_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-15dp"
+        android:src="@drawable/bg_comment_down"
+        />
+
+    <TextView
+        android:id="@+id/txtComentarioPostado_1"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar_1"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="12dp"
+        android:text="Eu quero!"></TextView>
+
+
+</RelativeLayout>
