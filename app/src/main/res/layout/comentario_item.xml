@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/avatarView"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="25dp"
+                app:srcCompat="@drawable/avatar"
+                />
+
+            <TextView
+                android:id="@+id/nameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/avatarView"
+                android:layout_alignLeft="@id/avatarView"
+                android:layout_marginLeft="32dp"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:textColor="@color/cinzaEscuro"
+                android:text="Gato da saída do RU"
+                />
+
+            <TextView
+                android:id="@+id/dataView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/nameView"
+                android:layout_alignLeft="@+id/nameView"
+                android:layout_marginTop="-5dp"
+                android:layout_marginRight="4dp"
+                android:textColor="@color/cinzaClaro"
+                android:textSize="10dp"
+                android:text="24/06/18 às 02:32"
+                />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:layout_below="@id/bgCommentTop"
+                android:layout_above="@id/bgCommentDown"
+                android:layout_marginTop="-2dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="7.5dp"
+                android:layout_alignLeft="@id/bgCommentTop"
+                android:background="@color/cinzaMedio" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:layout_below="@id/bgCommentTop"
+                android:layout_above="@id/bgCommentDown"
+                android:layout_marginTop="-2dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="-8dp"
+                android:layout_alignRight="@id/bgCommentTop"
+                android:background="@color/cinzaMedio" />
+
+            <ImageView
+                android:id="@+id/bgCommentTop"
+                android:layout_width="309dp"
+                android:layout_height="31dp"
+                android:layout_below="@+id/avatarView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/bg_comment_top"
+                />
+
+            <ImageView
+                android:id="@+id/bgCommentDown"
+                android:layout_width="309dp"
+                android:layout_height="31dp"
+                android:layout_below="@+id/commentView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-15dp"
+                android:src="@drawable/bg_comment_down"
+                />
+
+            <TextView
+                android:id="@+id/commentView"
+                android:layout_width="295dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avatarView"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12dp"
+                android:text="Eu quero!"></TextView>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
