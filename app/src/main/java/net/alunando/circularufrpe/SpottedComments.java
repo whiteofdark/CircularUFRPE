@@ -162,12 +162,13 @@ public class SpottedComments extends AppCompatActivity {
                                 String texto = commentsObject.getString("TEXTO");
 
                                 // Criar chave estrangeira para capturar o nome e link do avatar do usuario na query do comentario
-                                //String image = commentsObject.getString("AVATAR");
+                                String image = commentsObject.getString("AVATAR");
 
                                 comentario = new Comentario();
                                 carregaComment();
 
-                                comentario.getUsuario().setNome(user);
+                                comentario.getUsuario().setNome(user); // alterar essa linha para não ter erro de trocar o nome do usuario
+                                comentario.getUsuario().setAvatar(image);
                                 comentario.setHora(hora);
                                 comentario.setTexto(texto);
 

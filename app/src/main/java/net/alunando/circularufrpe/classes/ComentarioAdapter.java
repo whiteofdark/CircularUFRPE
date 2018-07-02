@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import net.alunando.circularufrpe.R;
 
 import java.util.List;
@@ -49,6 +51,10 @@ public class ComentarioAdapter extends RecyclerView.Adapter<ComentarioAdapter.Co
 
         //Deixando parte do avatar para depois, pois quero primeiro me preocupar com a logica geral
         //holder.avatarView.setImageDrawable(mCtx.getResources().getDrawable(comentario.getUsuario().getAvatar()));
+
+        Glide.with(mCtx)
+                .load(comentario.getUsuario().getAvatar())
+                .into(holder.avatarView);
     }
 
     @Override
@@ -68,6 +74,7 @@ public class ComentarioAdapter extends RecyclerView.Adapter<ComentarioAdapter.Co
             nameView = itemView.findViewById(R.id.nameView);
             dataView = itemView.findViewById(R.id.dataView);
             commentView = itemView.findViewById(R.id.commentView);
+            avatarView = itemView.findViewById(R.id.avatarView);
         }
     }
 }
