@@ -1,6 +1,7 @@
 package net.alunando.circularufrpe;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,12 @@ public class Spotted extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_spotted);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_spotted_small);
+        } else {
+            setContentView(R.layout.activity_spotted);
+        }
 
         btnVolta = (ImageView) findViewById(R.id.btnVolta);
         clickComments = (TextView) findViewById(R.id.clickComments);
@@ -51,5 +57,17 @@ public class Spotted extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
     }
 }

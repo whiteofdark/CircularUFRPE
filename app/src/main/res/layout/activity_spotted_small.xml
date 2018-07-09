@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Spotted"
+    android:background="@color/bg">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/branco"
+        android:text=""/>
+
+    <ImageView
+        android:id="@+id/bgCabecalhoSpotted"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/bg_cabecalho_spotted" />
+
+    <ImageView
+        android:id="@+id/btnVolta"
+        android:layout_width="40dp"
+        android:layout_height="34dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="1dp"
+        app:srcCompat="@drawable/ic_volta" />
+
+    <ImageView
+        android:id="@+id/btnRefresh"
+        android:layout_width="36dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="1dp"
+        app:srcCompat="@drawable/ic_refresh_spotted"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="292dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:background="@color/branco"
+                >
+
+                <ImageView
+                    android:id="@+id/avatar_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/avatar"
+                    />
+
+                <TextView
+                    android:id="@+id/txtNome_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/avatar_1"
+                    android:layout_alignLeft="@id/avatar_1"
+                    android:layout_marginLeft="32dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:textColor="@color/cinzaEscuro"
+                    android:text="Spotted UFRPE"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24/06/18 às 02:32"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="4dp"
+                    android:textColor="@color/cinzaClaro"
+                    android:textSize="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtPost_1"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatar_1"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Para todos os gatos da rural, quero ouvir vocês
+                    ronronarem no meu ouvido!"></TextView>
+
+                <ImageView
+                    android:id="@+id/icLike_1"
+                    android:layout_width="18dp"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/txtPost_1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="14dp"
+                    app:srcCompat="@drawable/ic_like"
+                    />
+
+                <TextView
+                    android:id="@+id/txtQtdLike_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/icLike_1"
+                    android:layout_alignLeft="@id/icLike_1"
+                    android:layout_marginLeft="22dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:textColor="@color/verde"
+                    android:text="135"
+                    />
+
+                <ImageView
+                    android:id="@+id/comment_1"
+                    android:layout_width="18dp"
+                    android:layout_height="16dp"
+                    android:layout_alignTop="@id/line"
+                    android:layout_alignLeft="@id/line"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    app:srcCompat="@drawable/ic_comment"
+                    />
+
+                <TextView
+                    android:id="@+id/txtQtdComment_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/comment_1"
+                    android:layout_alignLeft="@id/comment_1"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="-2dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:textColor="@color/verde"
+                    android:text="270"
+                    />
+                <TextView
+                    android:id="@+id/clickComments"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/comment_1"
+                    android:layout_alignLeft="@id/comment_1"
+                    />
+
+                <ImageView
+                    android:id="@+id/line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:layout_below="@+id/txtPost_1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@color/branco"
+                    app:srcCompat="@drawable/line"
+                    />
+
+            </RelativeLayout>
+
+
+
+            <ImageView
+                android:layout_width="292dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/bg_spotted"
+                />
+            <ImageView
+                android:layout_width="292dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/bg_spotted"
+                />
+            <ImageView
+                android:layout_width="292dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/bg_spotted"
+                />
+            <ImageView
+                android:layout_width="292dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/bg_spotted"
+                />
+            <ImageView
+                android:layout_width="292dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/bg_spotted"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

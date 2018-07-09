@@ -1,6 +1,7 @@
 package net.alunando.circularufrpe;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -63,7 +64,12 @@ public class SpottedComments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_spotted_comments);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_spotted_comments_small);
+        } else {
+            setContentView(R.layout.activity_spotted_comments);
+        }
 
         btnVolta = (ImageView) findViewById(R.id.btnVolta);
         //divComment = (RelativeLayout) findViewById(R.id.divComment);
@@ -161,11 +167,9 @@ public class SpottedComments extends AppCompatActivity {
                                 String hora = commentsObject.getString("HORA");
                                 String texto = commentsObject.getString("TEXTO");
 
-                                // Criar chave estrangeira para capturar o nome e link do avatar do usuario na query do comentario
                                 String image = commentsObject.getString("AVATAR");
 
                                 comentario = new Comentario();
-                                carregaComment();
 
                                 comentario.getUsuario().setNome(user); // alterar essa linha para não ter erro de trocar o nome do usuario
                                 comentario.getUsuario().setAvatar(image);
@@ -174,9 +178,6 @@ public class SpottedComments extends AppCompatActivity {
 
                                 comentarioList.add(comentario);
                             }
-
-                            adapter = new ComentarioAdapter(SpottedComments.this, comentarioList);
-                            recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -190,6 +191,9 @@ public class SpottedComments extends AppCompatActivity {
                     }
                 });
         Volley.newRequestQueue(this).add(stringRequest);
+
+        adapter = new ComentarioAdapter(SpottedComments.this, comentarioList);
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -264,6 +268,18 @@ public class SpottedComments extends AppCompatActivity {
 
         this.recreate();
         return retorno;
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
     }
 
 }

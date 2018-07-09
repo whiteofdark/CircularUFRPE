@@ -46,7 +46,7 @@
         />
     <ImageView
         android:id="@+id/bgComments"
-        android:layout_width="334dp"
+        android:layout_width="292dp"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
@@ -55,8 +55,8 @@
 
     <EditText
         android:id="@+id/txtComentario"
-        android:layout_width="260dp"
-        android:layout_height="80dp"
+        android:layout_width="230dp"
+        android:layout_height="70dp"
         android:layout_alignLeft="@+id/bgComments"
         android:layout_alignParentBottom="true"
         android:textColor="@color/colorPrimaryDark"
@@ -67,8 +67,8 @@
         android:id="@+id/btnEnvia"
         android:layout_width="60dp"
         android:layout_height="35dp"
-        android:layout_alignLeft="@id/bgVistoPor"
-        android:layout_marginLeft="270dp"
+        android:layout_alignRight="@id/txtComentario"
+        android:layout_marginRight="-59dp"
         android:layout_marginBottom="5dp"
         android:textSize="10dp"
         android:layout_alignParentBottom="true"
@@ -89,7 +89,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_width="334dp"
+                android:layout_width="292dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="13dp"
                 >

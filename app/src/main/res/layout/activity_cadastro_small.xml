@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".Cadastro">
+
+    <ImageView
+        android:id="@+id/bgContent"
+        android:layout_width="300dp"
+        android:layout_height="535dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/bg_content"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bgContent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:textSize="23dp"
+        android:text="Registrar"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewImage"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignTop="@+id/bgContent"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/avatar_cad"/>
+
+    <ImageView
+        android:id="@+id/btnCarregarFoto"
+        android:layout_width="125dp"
+        android:layout_height="33dp"
+        android:layout_alignTop="@id/imageViewImage"
+        android:layout_alignLeft="@id/imageViewImage"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/escolher_foto"
+        />
+
+    <TextView
+        android:id="@+id/textViewDynamicText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnCarregarFoto"
+        android:layout_alignLeft="@id/btnCarregarFoto"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="9dp"
+        android:text="ESCOLHER FOTO"/>
+
+    <ImageView
+        android:id="@+id/bgNomeCad"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageViewImage"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_nome_cad"
+        />
+
+    <EditText
+        android:id="@+id/editNomeCad"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/bgNomeCad"
+        android:layout_alignLeft="@id/bgNomeCad"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="-3dp"
+        android:background="@android:color/transparent"
+        android:textSize="15dp"
+        android:hint="Nome"
+        />
+
+    <ImageView
+        android:id="@+id/bgUsuarioCad"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bgNomeCad"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_nome_cad"
+        />
+
+    <EditText
+        android:id="@+id/editUsuarioCad"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/bgUsuarioCad"
+        android:layout_alignLeft="@id/bgUsuarioCad"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="-3dp"
+        android:background="@android:color/transparent"
+        android:textSize="15dp"
+        android:hint="Usuário"
+        />
+
+    <ImageView
+        android:id="@+id/bgEmailCad"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bgUsuarioCad"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_email_cad"
+        />
+
+    <EditText
+        android:id="@+id/editEmailCad"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/bgEmailCad"
+        android:layout_alignLeft="@id/bgEmailCad"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="-3dp"
+        android:textSize="15dp"
+        android:background="@android:color/transparent"
+        android:hint="Endereço de email"
+        />
+
+    <ImageView
+        android:id="@+id/bgSenhaCad"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bgEmailCad"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_senha_cad"
+        />
+
+    <EditText
+        android:id="@+id/editSenhaCad"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/bgSenhaCad"
+        android:layout_alignLeft="@id/bgSenhaCad"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="-3dp"
+        android:background="@android:color/transparent"
+        android:textSize="15dp"
+        android:inputType="textPassword"
+        android:hint="Senha"
+        />
+
+    <ImageView
+        android:id="@+id/bgConfSenhaCad"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bgSenhaCad"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/bg_senha_cad"
+        />
+
+    <EditText
+        android:id="@+id/editConfSenhaCad"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/bgConfSenhaCad"
+        android:layout_alignLeft="@id/bgConfSenhaCad"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="-3dp"
+        android:background="@android:color/transparent"
+        android:textSize="15dp"
+        android:inputType="textPassword"
+        android:hint="Confirmar senha"
+        />
+
+    <ImageView
+        android:id="@+id/btnRegistrarUsuario"
+        android:layout_width="240dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/bgContent"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/bg_regristrar"
+        />
+
+</RelativeLayout>

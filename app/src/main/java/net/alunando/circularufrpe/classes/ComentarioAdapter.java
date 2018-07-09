@@ -49,8 +49,7 @@ public class ComentarioAdapter extends RecyclerView.Adapter<ComentarioAdapter.Co
         holder.dataView.setText(comentario.getData() + " às " + comentario.getHora());
         holder.commentView.setText(String.valueOf(comentario.getTexto()));
 
-        //Deixando parte do avatar para depois, pois quero primeiro me preocupar com a logica geral
-        //holder.avatarView.setImageDrawable(mCtx.getResources().getDrawable(comentario.getUsuario().getAvatar()));
+        //holder.avatarView.setImageDrawable(mCtx.getResources().getDrawable(Integer.getInteger(comentario.getUsuario().getAvatar())));
 
         Glide.with(mCtx)
                 .load(comentario.getUsuario().getAvatar())

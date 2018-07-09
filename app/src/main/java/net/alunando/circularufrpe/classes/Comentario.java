@@ -3,7 +3,7 @@ package net.alunando.circularufrpe.classes;
 public class Comentario {
     private int id;
     private Post post;
-    Usuario usuario;
+    Usuario usuario = new Usuario();
     private String data;
     private String hora;
     private String texto;

@@ -47,7 +47,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
     TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo, txtGuarnicao, txtPrincipal, txtSobremesa, txtSuco, txtFast, txtVegetariano, txtGrelha;
 
-    private String HOST = "http://alunando.net/android/circular";
+    private final String HOST = "http://alunando.net/android/circular";
 
     int controlMenu=0;
 
@@ -585,6 +585,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         int id = menuItem.getItemId();
         Intent abreSpotted = new Intent(Home.this, Spotted.class);
         Intent abreLogin = new Intent(Home.this, Login.class);
+        Intent abreCadastro = new Intent(Home.this, Cadastro.class);
         Intent abreSobre = new Intent(Home.this, Sobre.class);
         Intent abrePerfil = new Intent(Home.this, Perfil.class);
 
@@ -600,6 +601,8 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
             } else {
                 startActivity(abreLogin);
             }
+        } else if (id == R.id.cadastro){
+            startActivity(abreCadastro);
         } else if (id == R.id.sobre){
             startActivity(abreSobre);
         }

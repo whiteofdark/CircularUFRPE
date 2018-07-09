@@ -5,6 +5,10 @@
         android:title="Login">
     </item>
 
+    <item android:id="@+id/cadastro"
+        android:title="Cadastro">
+    </item>
+
     <item android:id="@+id/perfil"
         android:title="Perfil">
     </item>
