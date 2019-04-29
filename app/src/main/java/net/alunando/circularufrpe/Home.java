@@ -43,7 +43,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
     GifImageView loading;
 
-    TextView txtVistoNo, txtVistoHora, txtPrevLocal, txtPrevTempo, versao;
+    TextView txtVistoNo, txtVistoHora, txtPrevLocal, txtPrevTempo, versao, fila;
 
     TextView txtSalada, txtRefeicaoData, txtRefeicaoTipo, txtGuarnicao, txtPrincipal, txtSobremesa, txtSuco, txtFast, txtVegetariano, txtGrelha;
 
@@ -67,6 +67,8 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         }
 
         atualizaAutomatico();
+
+        fila = (TextView) findViewById(R.id.fila);
 
         versao = (TextView) findViewById(R.id.versao);
 
@@ -107,6 +109,19 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         //Métodos recebem a variável auto para quando atualizar automáticamente não ficar irritando o usuário com mensagens na tela o tempo to do
         atualizaRU(1);
         atualizaCircular(1);
+
+        fila.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abreRU = new Intent(Home.this, RU.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("usuario", usuarioLogado);
+                abreRU.putExtras(bundle);
+
+                startActivity(abreRU);
+            }
+        });
 
         spotted.setOnClickListener(new View.OnClickListener() {
             @Override

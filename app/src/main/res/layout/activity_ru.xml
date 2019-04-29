@@ -9,13 +9,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bg">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_alignParentTop="true"
-            android:background="@color/branco"
+            android:background="@color/colorPrimary"
             android:text=""/>
 
         <ImageView
@@ -23,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:layout_alignParentTop="true"
-            app:srcCompat="@drawable/bg_cabecalho_spotted" />
+            app:srcCompat="@drawable/bg_cabecalho_ru" />
 
         <ImageView
             android:id="@+id/btnVolta"
@@ -33,7 +34,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="1dp"
-            app:srcCompat="@drawable/ic_volta" />
+            app:srcCompat="@drawable/ic_volta_branco" />
 
         <ImageView
             android:id="@+id/btnRefresh"
@@ -43,14 +44,34 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="1dp"
             android:layout_marginRight="1dp"
-            app:srcCompat="@drawable/ic_refresh_spotted"
+            app:srcCompat="@drawable/atualiza_branco"
+            />
+
+        <TextView
+            android:id="@+id/bg_fila"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="-4dp"
+            android:layout_below="@id/bgCabecalhoRU"
+            android:background="@color/branco"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/icFila"
+            android:layout_width="30dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@id/bg_fila"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/fila"
             />
 
         <ImageView
             android:id="@+id/bgRu"
             android:layout_width="351dp"
             android:layout_height="247dp"
-            android:layout_below="@id/bgBus"
+            android:layout_below="@id/bg_fila"
             android:layout_centerInParent="true"
             android:layout_marginTop="12dp"
             android:src="@drawable/bg_ru"
