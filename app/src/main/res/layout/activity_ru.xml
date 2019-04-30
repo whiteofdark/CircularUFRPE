@@ -61,10 +61,43 @@
             android:layout_width="30dp"
             android:layout_height="36dp"
             android:layout_alignTop="@id/bg_fila"
+            android:layout_alignBottom="@+id/bg_fila"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             app:srcCompat="@drawable/fila"
+            />
+
+        <ImageView
+            android:id="@+id/filaNa"
+            android:layout_width="108dp"
+            android:layout_height="25dp"
+            android:layout_alignTop="@id/bg_fila"
+            android:layout_alignBottom="@+id/bg_fila"
+            android:layout_alignLeft="@+id/icFila"
+            android:layout_marginLeft="30dp"
+            app:srcCompat="@drawable/fila_na"
+            />
+
+        <ImageView
+            android:id="@+id/bgLocalFila"
+            android:layout_width="132dp"
+            android:layout_height="25dp"
+            android:layout_alignTop="@id/bg_fila"
+            android:layout_alignBottom="@+id/bg_fila"
+            android:layout_alignLeft="@+id/filaNa"
+            android:layout_marginLeft="115dp"
+            app:srcCompat="@drawable/bg_local_fila"
+            />
+
+        <ImageView
+            android:id="@+id/bgFilaHora"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_alignTop="@id/bg_fila"
+            android:layout_alignBottom="@+id/bg_fila"
+            android:layout_alignLeft="@+id/bgLocalFila"
+            android:layout_marginLeft="138dp"
+            app:srcCompat="@drawable/bg_fila_hora"
             />
 
         <ImageView
@@ -382,6 +415,17 @@
             android:layout_marginTop="190dp"
             android:layout_marginLeft="27dp"
             android:src="@drawable/grelha"
+            />
+
+        <ImageView
+            android:id="@+id/bgPrevLugar"
+            android:layout_width="164dp"
+            android:layout_height="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            app:srcCompat="@drawable/btn_tamanho_fila"
             />
 
     </RelativeLayout>
